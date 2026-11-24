@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Website development, design-to-code and responsive layouts for phones and computers."
+  >
+
+  <meta name="theme-color" content="#111020">
+
+  <title>Website Development — Portfolio</title>
+
+  <style>
+    :root {
+      --ink: #171525;
+      --muted: #676678;
+      --paper: #f7f6fa;
+      --white: #fff;
+      --purple: #6d4aff;
+      --line: #e8e6ee;
+      --dark: #151425;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #947fff;
+      outline-offset: 4px;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 850;
+      letter-spacing: -0.055em;
+      font-size: 22px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--ink);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 19px;
+      letter-spacing: -0.09em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: #5e5d6d;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      padding: 11px 17px;
+      border: 1px solid #dcd9e6;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .menu-button {
+      display: none;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 12px;
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      border-radius: 26px;
+      min-height: 572px;
+      color: white;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: center;
+      padding: 68px 6.4%;
+      isolation: isolate;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 600px;
+      height: 600px;
+      right: -170px;
+      top: -280px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(112, 83, 246, 0.23),
+        transparent 67%
+      );
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      letter-spacing: 0.13em;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: #d0c8ff;
+    }
+
+    .eyebrow:before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #ad9aff;
+      border-radius: 50%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 600px;
+      margin: 21px 0 22px;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      font-weight: 760;
+    }
+
+    h1 span {
+      color: #b7a9ff;
+    }
+
+    .hero-copy {
+      color: #c5c2d6;
+      max-width: 430px;
+      font-size: 17px;
+      line-height: 1.75;
+      margin-bottom: 31px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: 13px 21px;
+      background: #fff;
+      color: #171525;
+      border: 0;
+      border-radius: 11px;
+      font-weight: 750;
+      font-size: 14px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #eeebff;
+    }
+
+    .button-ghost {
+      color: #eeeafb;
+      background: transparent;
+      border: 1px solid #5a566d;
+    }
+
+    .button-ghost:hover {
+      background: #29263d;
+    }
+
+    .hero-note {
+      margin: 38px 0 0;
+      font-size: 13px;
+      color: #9d99b1;
+    }
+
+    .hero-note span {
+      color: #d3d0e3;
+    }
+
+    .visual {
+      position: relative;
+      padding: 25px 0 20px 50px;
+    }
+
+    .visual-halo {
+      position: absolute;
+      inset: 0 -30px 0 0;
+      background: radial-gradient(
+        ellipse,
+        rgba(111, 80, 253, 0.28),
+        transparent 67%
+      );
+      filter: blur(12px);
+    }
+
+    .browser {
+      position: relative;
+      background: #faf9ff;
+      color: #222032;
+      transform: rotate(3deg);
+      border: 7px solid #e9e7f3;
+      border-radius: 18px;
+      box-shadow: 0 28px 75px #09081466;
+      overflow: hidden;
+    }
+
+    .browser-top {
+      height: 39px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 14px;
+      background: #fff;
+      border-bottom: 1px solid #ecebf2;
+    }
+
+    .browser-top i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d5d1df;
+    }
+
+    .browser-address {
+      margin: auto;
+      width: 42%;
+      height: 10px;
+      border-radius: 10px;
+      background: #f0eff5;
+    }
+
+    .demo {
+      padding: 24px 27px 29px;
+      min-height: 250px;
+    }
+
+    .demo-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      font-weight: 850;
+    }
+
+    .demo-nav span:last-child {
+      font-weight: 600;
+      color: #9994ad;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 16px;
+      padding: 34px 0 20px;
+    }
+
+    .demo-label {
+      font-size: 7px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: #7a5be9;
+    }
+
+    .demo-title {
+      font-size: clamp(22px, 3vw, 37px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.06em;
+      margin: 9px 0;
+    }
+
+    .demo-line {
+      height: 5px;
+      background: #e6e3ef;
+      border-radius: 10px;
+      width: 94%;
+      margin: 6px 0;
+    }
+
+    .demo-line.short {
+      width: 66%;
+    }
+
+    .demo-pill {
+      margin-top: 14px;
+      border-radius: 6px;
+      background: #7154ed;
+      color: #fff;
+      font-size: 7px;
+      font-weight: 700;
+      padding: 8px 12px;
+      display: inline-block;
+    }
+
+    .demo-art {
+      height: 140px;
+      border-radius: 13px;
+      background: #ded6ff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-art:before,
+    .demo-art:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .demo-art:before {
+      width: 135px;
+      height: 135px;
+      left: 18%;
+      top: 10%;
+      background: linear-gradient(140deg, #b39fff, #7955f7);
+    }
+
+    .demo-art:after {
+      width: 90px;
+      height: 90px;
+      left: 40%;
+      top: 42%;
+      background: #d3cbff;
+    }
+
+    .visual-tag {
+      position: absolute;
+      right: -8px;
+      bottom: 4px;
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: 0 12px 35px #0908144d;
+      color: #252239;
+      padding: 14px 16px;
+      font-size: 12px;
+      font-weight: 750;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tag-icon {
+      width: 29px;
+      height: 29px;
+      background: #e7fff0;
+      color: #158454;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+    }
+
+    .visual-caption {
+      color: #a7a2bd;
+      font-size: 12px;
+      margin: 21px 2px 0;
+      text-align: right;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 92px 0 38px;
+      align-items: end;
+    }
+
+    .intro h2,
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.05em;
+      margin: 12px 0 0;
+    }
+
+    .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: #7155e7;
+      text-transform: uppercase;
+    }
+
+    .intro-text {
+      max-width: 330px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .service {
+      background: #fff;
+      border: 1px solid #eeedf2;
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 246px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px #2118400d;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      background: #f0edff;
+      color: #6d4aff;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 33px;
+    }
+
+    .icon svg {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service h3 {
+      font-size: 20px;
+      letter-spacing: -0.035em;
+      margin-bottom: 9px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .process {
+      margin: 100px 0 0;
+      border-radius: 26px;
+      background: #ece9f8;
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 75px;
+    }
+
+    .process-head p {
+      color: #6b687a;
+      margin: 18px 0 0;
+      max-width: 320px;
+    }
+
+    .steps {
+      border-top: 1px solid #d8d4e8;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 18px;
+      border-bottom: 1px solid #d8d4e8;
+      padding: 23px 0;
+    }
+
+    .step-icon {
+      color: #775bf0;
+      font-weight: 850;
+      font-size: 20px;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      margin: 0 0 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .step p {
+      color: #716d80;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .contact {
+      margin: 100px 0 0;
+      padding: 65px;
+      background: #fff;
+      border: 1px solid #eeedf2;
+      border-radius: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .contact h2 {
+      font-size: clamp(30px, 4vw, 45px);
+      letter-spacing: -0.05em;
+      line-height: 1.12;
+      margin: 12px 0;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 540px;
+    }
+
+    .contact-status {
+      background: #f2f0fa;
+      color: #625c78;
+      padding: 15px 19px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 650;
+      max-width: 270px;
+    }
+
+    .footer {
+      padding: 38px 0 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: #898596;
+      font-size: 13px;
+    }
+
+    .footer .brand {
+      color: var(--ink);
+      font-size: 18px;
+    }
+
+    .footer .brand-mark {
+      width: 27px;
+      height: 27px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero {
+        padding: 54px 6%;
+        grid-template-columns: 1fr 0.85fr;
+      }
+
+      .visual {
+        padding-left: 25px;
+      }
+
+      .process {
+        padding: 45px;
+        gap: 30px;
+      }
+
+      .contact {
+        padding: 45px;
+      }
+
+      .services {
+        gap: 10px;
+      }
+
+      .service {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 30px, 1160px);
+      }
+
+      .nav {
+        height: 68px;
+        position: relative;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        z-index: 5;
+        left: 0;
+        right: 0;
+        top: 58px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        box-shadow: 0 15px 30px #00000012;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 11px;
+      }
+
+      .hero {
+        border-radius: 20px;
+        display: block;
+        padding: 42px 25px 34px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .hero-note {
+        margin-top: 24px;
+      }
+
+      .visual {
+        padding: 42px 16px 0 4px;
+        max-width: 430px;
+        margin: auto;
+      }
+
+      .browser {
+        transform: rotate(2deg);
+      }
+
+      .demo {
+        min-height: 0;
+        padding: 20px;
+      }
+
+      .demo-grid {
+        padding: 24px 0 12px;
+      }
+
+      .demo-art {
+        height: 112px;
+      }
+
+      .demo-art:before {
+        width: 105px;
+        height: 105px;
+      }
+
+      .demo-art:after {
+        width: 70px;
+        height: 70px;
+      }
+
+      .visual-tag {
+        right: 0;
+        bottom: -10px;
+      }
+
+      .visual-caption {
+        margin-top: 24px;
+      }
+
+      .intro {
+        padding: 70px 0 24px;
+        display: block;
+      }
+
+      .intro-text {
+        margin-top: 16px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        min-height: 0;
+        padding: 25px;
+      }
+
+      .icon {
+        margin-bottom: 20px;
+      }
+
+      .process {
+        margin-top: 70px;
+        display: block;
+        padding: 32px 26px;
+        border-radius: 20px;
+      }
+
+      .process-head p {
+        margin-bottom: 28px;
+      }
+
+      .contact {
+        margin-top: 70px;
+        padding: 32px 26px;
+        display: block;
+        border-radius: 20px;
+      }
+
+      .contact-status {
+        margin-top: 24px;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 30px 0 35px;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *:before,
+      *:after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="brand-mark">m.</span>
+      mher<span style="color: #8067ed">/</span>web
+    </a>
+
+    <nav
+      class="nav-links"
+      id="navigation"
+      aria-label="Main navigation"
+    >
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="nav-cta" href="#contact">
+      Discuss a project
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="navigation"
+    >
+      Menu
+    </button>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="eyebrow">
+          Web development
+        </div>
+
+        <h1 id="hero-title">
+          A website for your <span>idea.</span>
+        </h1>
+
+        <p class="hero-copy">
+          I can help create a clean, easy-to-use website for your
+          project, adapted for phones and computers.
+        </p>
+
+        <div class="actions">
+          <a class="button" href="#services">
+            Explore services
+          </a>
+
+          <a class="button button-ghost" href="#process">
+            How it works
+          </a>
+        </div>
+
+        <p class="hero-note">
+          <span>HTML · CSS · JavaScript</span>
+          &nbsp; / &nbsp; Responsive design
+        </p>
+      </div>
+
+      <div
+        class="visual"
+        aria-label="Illustration of a sample website design"
+      >
+        <div class="visual-halo"></div>
+
+        <div class="browser">
+          <div class="browser-top">
+            <i></i>
+            <i></i>
+            <i></i>
+            <div class="browser-address"></div>
+          </div>
+
+          <div class="demo">
+            <div class="demo-nav">
+              <span>your brand.</span>
+              <span>ABOUT &nbsp;&nbsp; SERVICES &nbsp;&nbsp; CONTACT</span>
+            </div>
+
+            <div class="demo-grid">
+              <div>
+                <div class="demo-label">
+                  Ideas come to life
+                </div>
+
+                <div class="demo-title">
+                  Made<br>for you.
+                </div>
+
+                <div class="demo-line"></div>
+                <div class="demo-line short"></div>
+
+                <span class="demo-pill">
+                  Learn more
+                </span>
+              </div>
+
+              <div class="demo-art"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-tag">
+          <span class="tag-icon">✓</span>
+          <span>Made for different screens</span>
+        </div>
+
+        <div class="visual-caption">
+          Sample website design
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="intro">
+        <div>
+          <div class="kicker">
+            What I can help with
+          </div>
+
+          <h2 id="services-title">
+            From idea to website
+          </h2>
+        </div>
+
+        <p class="intro-text">
+          Choose the kind of help that fits your project.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="3"/>
+              <path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>
+            </svg>
+          </div>
+
+          <h3>Landing pages</h3>
+
+          <p>
+            A focused page that introduces your project,
+            service or offer.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5h16v14H4zM4 10h16M9 10v9"/>
+            </svg>
+          </div>
+
+          <h3>Design to code</h3>
+
+          <p>
+            Turn your design into a website using HTML,
+            CSS and JavaScript.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="7" y="2.5" width="10" height="19" rx="2"/>
+              <path d="M11 18.5h2"/>
+            </svg>
+          </div>
+
+          <h3>Responsive updates</h3>
+
+          <p>
+            Improve existing pages and adapt them for phones
+            and computers.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section
+      id="process"
+      class="process"
+      aria-labelledby="process-title"
+    >
+      <div class="process-head">
+        <div class="kicker">
+          A simple process
+        </div>
+
+        <h2 class="section-title" id="process-title">
+          How it works
+        </h2>
+
+        <p>
+          We start by discussing your goals and the details
+          of your project.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">✳</div>
+
+          <div>
+            <h3>Let's talk</h3>
+
+            <p>
+              We discuss what you need and what your website
+              should include.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">✳</div>
+
+          <div>
+            <h3>Creation</h3>
+
+            <p>
+              I build your pages and adapt the layout
+              for different devices.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">✳</div>
+
+          <div>
+            <h3>Review</h3>
+
+            <p>
+              We review the result and agree on any necessary changes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="contact"
+      aria-labelledby="contact-title"
+    >
+      <div>
+        <div class="kicker">
+          Your project
+        </div>
+
+        <h2 id="contact-title">
+          Tell me about your idea
+        </h2>
+
+        <p>
+          Have a website idea or need help with an existing page?
+          Contact details will be added here.
+        </p>
+      </div>
+
+      <div class="contact-status">
+        Contact details have not been added yet
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <a class="brand" href="#top">
+      <span class="brand-mark">m.</span>
+      mher<span style="color: #8067ed">/</span>web
+    </a>
+
+    <p>
+      Web development · HTML, CSS, JavaScript
+    </p>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector("#navigation");
+
+    menuButton.addEventListener("click", () => {
+      const open = navigation.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+</body>
+</html>
